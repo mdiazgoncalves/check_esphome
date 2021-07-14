@@ -16,7 +16,7 @@ async def device_info():
     running_loop = asyncio.get_running_loop()
 
     # Establish connection
-    api = aioesphomeapi.APIClient(running_loop, args.Address, args.Port, args.Password)
+    api = aioesphomeapi.APIClient(running_loop, args.hostname, args.port, args.password)
     await api.connect(login=True)
 
     # Get device info
@@ -27,9 +27,10 @@ async def device_info():
 my_parser = argparse.ArgumentParser(description='Check ESPHome node')
 
 # Add the arguments
-my_parser.add_argument('Address', metavar='address', type=str, help='The host ip address')
-my_parser.add_argument('Port', metavar='port', type=str, help='The service port number to connect to')
-my_parser.add_argument('Password', metavar='password', type=str, help='The esphome api password')
+
+my_parser.add_argument('hostname', metavar='<hostname>', type=str, help='The hostname of the device')
+my_parser.add_argument('-P', '--port', metavar="<port>", help="Network port to connect to (defaults to 6053)", dest='port', default=6053, type=int)
+my_parser.add_argument('password', metavar='<password>', type=str, help='The esphome api password')
 
 # Execute the parse_args() method
 args = my_parser.parse_args()
