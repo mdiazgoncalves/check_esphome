@@ -1,7 +1,7 @@
 # check_esphome
 
 
-Nagios plugin to check availability of ESPHome devices. Checks if the ESPHome device is online
+Nagios plugin to check availability of [ESPHome](https://esphome.io) devices. Checks if the ESPHome device is online
 
 ## Installation
 
