@@ -17,6 +17,9 @@ chmod +x check_esphome.py
 ```
 
 The `aioesphomeapi <https://github.com/esphome/aioesphomeapi>`_ module is required.
+
+`Python Package Index <https://pypi.python.org/pypi>`_
+
 It can be installed using:
 
 ```
