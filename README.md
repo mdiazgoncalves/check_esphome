@@ -16,9 +16,7 @@ wget https://raw.githubusercontent.com/mdiazgoncalves/check_esphome/main/check_e
 chmod +x check_esphome.py
 ```
 
-The `aioesphomeapi <https://github.com/esphome/aioesphomeapi>`_ module is required.
-
-`Python Package Index <https://pypi.python.org/pypi>`_
+The [aioesphomeapi](https://github.com/esphome/aioesphomeapi) module is required.
 
 It can be installed using:
 
