@@ -21,7 +21,6 @@ async def device_info():
 
     # Get device info
     info = await api.device_info()
-    print(info)
     return info
 
 # Create the argument parser
