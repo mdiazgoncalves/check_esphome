@@ -41,14 +41,14 @@ loop = asyncio.get_event_loop()
 try:
     data = loop.run_until_complete(device_info())
 except Exception as e:
-    status = 2
-    message = str(e)
+    STATUS = 2
+    MESSAGE = str(e)
 else:
-    status = 0
-    message = "name:{} mac_address:{} model:{} version:{}".format(data.name,data.mac_address,data.model,data.esphome_version)
+    STATUS = 0
+    MESSAGE = "name:{} mac_address:{} model:{} version:{}".format(data.name,data.mac_address,data.model,data.esphome_version)
 
-# Print the message for nagios
-print("{} - {}".format(codes[status], message))
+# Print the MESSAGE for nagios
+print("{} - {}".format(codes[STATUS], MESSAGE))
 
 # Exit with status code
-raise SystemExit(status)
+raise SystemExit(STATUS)
