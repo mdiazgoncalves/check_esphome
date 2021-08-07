@@ -19,4 +19,4 @@ jobs:
         pip install pylint aioesphomeapi
     - name: Analysing the code with pylint
       run: |
-        pylint --rcfile=/.github/.pylintrc `ls -R|grep .py$|xargs`
+        pylint --rcfile=.github/.pylintrc `ls -R|grep .py$|xargs`
