@@ -1,5 +1,6 @@
 [![Pylint](https://github.com/mdiazgoncalves/check_esphome/actions/workflows/pylint.yml/badge.svg)](https://github.com/mdiazgoncalves/check_esphome/actions/workflows/pylint.yml)
 [![Remark lint](https://github.com/mdiazgoncalves/check_esphome/actions/workflows/remarklint.yml/badge.svg)](https://github.com/mdiazgoncalves/check_esphome/actions/workflows/remarklint.yml)
+[![GitHub release](https://github.com/mdiazgoncalves/check_esphome/releases/badge.svg)](https://github.com/mdiazgoncalves/check_esphome/releases/)
 
 # check_esphome
 
