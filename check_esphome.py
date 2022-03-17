@@ -3,20 +3,20 @@
 # https://nagios-plugins.org/doc/guidelines.html
 
 # Import required libs for your plugin
-import asyncio
 import argparse
 import aioesphomeapi
+import asyncio
 
 # Return codes expected by Nagios
-codes = [ 'OK', 'WARNING', 'CRITICAL', 'UNKNOWN' ]
+codes = ['OK', 'WARNING', 'CRITICAL', 'UNKNOWN']
+
 
 # Connect to device and get info
 async def device_info():
     """Connect to an ESPHome device and get device info."""
-    running_loop = asyncio.get_running_loop()
 
     # Establish connection
-    api = aioesphomeapi.APIClient(running_loop, args.hostname, args.port, args.password)
+    api = aioesphomeapi.APIClient(args.hostname, args.port, args.password)
     await api.connect(login=True)
 
     # Get device info
@@ -36,19 +36,18 @@ my_parser.add_argument('password', metavar='<password>', type=str, help='The esp
 args = my_parser.parse_args()
 
 # Check logic starts here
-loop = asyncio.get_event_loop()
 
 try:
-    data = loop.run_until_complete(device_info())
+    data = asyncio.run(device_info())
 except Exception as e:
     STATUS = 2
     MESSAGE = str(e)
 else:
     STATUS = 0
-    MESSAGE = "name:{} mac_address:{} model:{} version:{}".format(data.name,data.mac_address,data.model,data.esphome_version)
+    MESSAGE = f"name:{data.name} mac_address:{data.mac_address} model:{data.model} version:{data.esphome_version}"
 
 # Print the MESSAGE for nagios
-print("{} - {}".format(codes[STATUS], MESSAGE))
+print(f"{codes[STATUS]} - {MESSAGE}")
 
 # Exit with status code
 raise SystemExit(STATUS)
