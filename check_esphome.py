@@ -4,8 +4,9 @@
 
 # Import required libs for your plugin
 import argparse
-import aioesphomeapi
 import asyncio
+
+import aioesphomeapi
 
 # Return codes expected by Nagios
 codes = ['OK', 'WARNING', 'CRITICAL', 'UNKNOWN']
