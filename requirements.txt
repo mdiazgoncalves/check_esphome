@@ -6,4 +6,4 @@
 # Autor: Miguel Diaz Gonçalves
 #
 
-aioesphomeapi==10.8.2
+aioesphomeapi==13.2.0
