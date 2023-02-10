@@ -1,0 +1,9 @@
+#
+# check_esphome
+#
+# requirements.txt
+#
+# Autor: Miguel Diaz Gonçalves
+#
+
+aioesphomeapi==10.8.2
