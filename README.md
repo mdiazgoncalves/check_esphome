@@ -37,7 +37,7 @@ optional arguments:
   <hostname>
                         The hostname of the ESPHome device
   <password>
-                        The device ESPHome api pre-shared key
+                        The device ESPHome api password
   -P <port>, --port <port>
                         Network port to connect to (defaults to 6053)
 ```
