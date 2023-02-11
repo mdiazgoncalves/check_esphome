@@ -8,8 +8,6 @@ import asyncio
 
 import aioesphomeapi
 
-VERSION = "2023.02.01"
-
 # Return codes expected by Nagios
 codes = ['OK', 'WARNING', 'CRITICAL', 'UNKNOWN']
 
@@ -19,7 +17,7 @@ async def device_info():
     """Connect to an ESPHome device and get device info."""
 
     # Establish connection
-    api = aioesphomeapi.APIClient(args.hostname, args.port, None, noise_psk=args.password)
+    api = aioesphomeapi.APIClient(args.hostname, args.port, args.password)
     await api.connect(login=True)
 
     # Get device info
@@ -27,7 +25,7 @@ async def device_info():
     return info
 
 # Create the argument parser
-my_parser = argparse.ArgumentParser(description='Check ESPHome node ver '.join(VERSION))
+my_parser = argparse.ArgumentParser(description='Check ESPHome node')
 
 # Add the arguments
 
