@@ -17,7 +17,10 @@ async def device_info():
     """Connect to an ESPHome device and get device info."""
 
     # Establish connection
-    api = aioesphomeapi.APIClient(args.hostname, args.port, args.password)
+    if args.auth == "password":
+        api = aioesphomeapi.APIClient(args.hostname, args.port, args.password)
+    else:
+        api = aioesphomeapi.APIClient(args.hostname, args.port, None, noise_psk=args.password)
     await api.connect(login=True)
 
     # Get device info
@@ -31,6 +34,7 @@ my_parser = argparse.ArgumentParser(description='Check ESPHome node')
 
 my_parser.add_argument('hostname', metavar='<hostname>', type=str, help='The hostname of the device')
 my_parser.add_argument('-P', '--port', metavar="<port>", help="Network port to connect to (defaults to 6053)", dest='port', default=6053, type=int)
+my_parser.add_argument('-a', '--auth', metavar="<auth>", help="Auth type 'password' or 'encryption' (defaults to password)", dest='auth', default="password", type=str)
 my_parser.add_argument('password', metavar='<password>', type=str, help='The esphome api password')
 
 # Execute the parse_args() method

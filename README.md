@@ -40,7 +40,11 @@ optional arguments:
                         The device ESPHome api password
   -P <port>, --port <port>
                         Network port to connect to (defaults to 6053)
+  -a <auth>, --auth <auth>
+                        Auth type 'password' or 'encryption' (defaults to password)
 ```
+
+Use auth type `password` (or default) if you are using `api.password`, or `encryption` if using `api.encryption.key` in ESPHome Native API config.
 
 ## Support
 
